@@ -59,12 +59,12 @@
 
 # Name of the SNS project. This may differ from the name of the associated
 # token. Must be a string of max length = 255.
-name: Carbon Crowd
+name: IC Footprint
 
 # Description of the SNS project.
 # Must be a string of max length = 2,000.
 description: >
-  PLACEHOLDER
+  The home of energy management and sustainability on ICP.
 
 # This is currently a placeholder field and must be left empty for now.
 Principals: []
@@ -76,13 +76,13 @@ logo: logo.png
 
 # URL to the dapp controlled by the SNS project.
 # Must be a string from 10 to 512 bytes.
-url: https://PLACEHOLDER.icp0.io/
+url: https://owqnd-biaaa-aaaak-qidaq-cai.icp0.io/
 
 # Metadata for the NNS proposal required to create the SNS. This data will be
 # shown only in the NNS proposal.
 NnsProposal:
   # The title of the NNS proposal. Must be a string of 4 to 256 bytes.
-  title: "NNS Proposal to create an SNS named 'Carbon Crowd'"
+  title: "NNS Proposal to create an SNS named 'IC Footprint'"
 
   # The HTTPS address of additional content required to evaluate the NNS
   # proposal.
@@ -90,7 +90,7 @@ NnsProposal:
 
   # The description of the proposal. Must be a string of 10 to 2,000 bytes.
   summary: >
-    Proposal to create an SNS for Carbon Crowd.
+    Proposal to create an SNS for IC footprint.
     The SNS will be initialized with the following neurons:
     ...
 
@@ -101,6 +101,8 @@ fallback_controller_principals:
   # For the actual SNS launch, you should replace this with one or more
   # principals of your intended fallback controllers.
   - fjxis-biqvl-ea7ll-lv5cn-ggkxt-m6puo-gzhcs-qn2mo-kxkz4-yklwx-iae
+  - wpgtu-xait7-und47-or7dx-tklnr-ainhj-ob2hu-3t4ch-kh4jn-dvixw-gae
+  - touu3-pqaaa-aaaak-qcqrq-cai
 
 # The list of dapp canister(s) that will be decentralized if the
 # decentralization swap succeeds. These are defined in the form of canister IDs,
@@ -114,18 +116,20 @@ dapp_canisters:
   # IDs of the canisters comprising your to-be-decentralized dapp.
   #
   # For testing, propose_sns.sh will fill this in automatically.
-  - aaaaa-aa
+  - owqnd-biaaa-aaaak-qidaq-cai # frontend
+  - o7tg7-xaaaa-aaaak-qidba-cai # node manager
+  - jhfj2-iqaaa-aaaak-qddxq-cai # esg wallet
 
 # Configuration of SNS tokens in the SNS Ledger canister deployed as part
 # of the SNS.
 Token:
   # The name of the token issued by the SNS ledger.
   # Must be a string of 4 to 255 bytes without leading or trailing spaces.
-  name: Carbon Crowd Token
+  name: Footprint Token
 
   # The symbol of the token issued by the SNS Ledger.
   # Must be a string of 3 to 10 bytes without leading or trailing spaces.
-  symbol: CCT
+  symbol: FOOTPRINT
 
   # SNS ledger transaction fee.
   transaction_fee: 10_000 e8s
@@ -323,21 +327,25 @@ Distribution:
     # For the actual SNS launch, you should replace this with one or more
     # principals of your intended genesis neurons.
     #
-    - principal: aaaaa-aa
-      stake: 23000000 tokens
-      memo: 1
-      dissolve_delay: 1 month
-      vesting_period: 2 years
 
+    # developers
     - principal: aaaaa-aa
-      stake: 23000000 tokens
+      stake: 15_000_000 tokens
       memo: 0
       dissolve_delay: 1 month
       vesting_period: 3 years
 
+    # advisors
     - principal: aaaaa-aa
-      stake: 23000000 tokens
-      memo: 0
+      stake: 2_500_000 tokens
+      memo: 1
+      dissolve_delay: 1 month
+      vesting_period: 2 years
+
+    #crowdfunding
+    - principal: aaaaa-aa
+      stake: 5_000_000 tokens
+      memo: 2
       dissolve_delay: 1 month
       vesting_period: 4 years
 
@@ -347,12 +355,12 @@ Distribution:
     # as the treasury. This is initialized in a special sub-account, as the
     # main account of Governance is the minting account of the SNS Ledger.
     # This field is specified as a token. For instance, "1 token".
-    governance: 57000000 tokens
+    governance: 52_500_000 tokens
 
     # The initial SNS token balance of the Swap canister is what will be
     # available for the decentralization swap. These tokens will be swapped
     # for ICP. This field is specified as a token. For instance, "1 token".
-    swap: 20000000 tokens
+    swap: 25_000_000 tokens
 
   # Checksum of the total number of tokens distributed in this section.
   # This field is specified as a token. For instance, "1 token".
@@ -360,7 +368,7 @@ Distribution:
   #      2 million    (governance) treasury
   # + 500 thousand    (swap)
   # --------------
-  total: 100000000 tokens
+  total: 100_000_000 tokens
 
 # Configuration of the decentralization swap parameters. Choose these parameters
 # carefully, if a decentralization swap fails, the SNS will restore the dapp
