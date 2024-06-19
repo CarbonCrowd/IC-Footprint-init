@@ -65,7 +65,7 @@ dapp_canisters:
 Token:
   # The name of the token issued by the SNS ledger.
   # Must be a string of 4 to 255 bytes without leading or trailing spaces.
-  name: Footprint Token
+  name: FOOTPRINT
 
   # The symbol of the token issued by the SNS Ledger.
   # Must be a string of 3 to 10 bytes without leading or trailing spaces.
